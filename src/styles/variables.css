@@ -1,31 +1,67 @@
-/* Color Palette - Crypto Theme */
+/* Color Palette - Nocturne (Crypto Theme) */
 :root {
-  /* Primary Colors - Up/Down */
-  --color-up: #10b981;
-  --color-down: #ef4444;
-  --color-neutral: #6b7280;
+  /* Core tokens (Nocturne) */
+  --color-bg: #161826;
+  --color-surface: #232532;
+  --color-text: #e9e9ed;
+  --color-accent: #9184d9;
+  --color-divider: rgba(233, 233, 237, 0.16);
 
-  /* Backgrounds */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  --bg-overlay: rgba(0, 0, 0, 0.5);
+  /* Neutral ramp (surfaces, borders, muted fills) */
+  --color-neutral-100: #f3f5fe;
+  --color-neutral-200: #e4e7f5;
+  --color-neutral-300: #cfd3e5;
+  --color-neutral-400: #b2b6ca;
+  --color-neutral-500: #9397ab;
+  --color-neutral-600: #75798c;
+  --color-neutral-700: #595d6c;
+  --color-neutral-800: #3f424d;
+  --color-neutral-900: #292b31;
 
-  /* Text Colors */
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-tertiary: #9ca3af;
-  --text-inverse: #ffffff;
+  /* Accent ramp (blurple - nav, buttons, MA line, donut, focus) */
+  --color-accent-100: #f5f4ff;
+  --color-accent-200: #e7e5fe;
+  --color-accent-300: #d2cefd;
+  --color-accent-400: #b5abfc;
+  --color-accent-500: #968ae0;
+  --color-accent-600: #796cbf;
+  --color-accent-700: #5d5294;
+  --color-accent-800: #423a6a;
+  --color-accent-900: #2b2741;
+
+  /* Market / functional colors */
+  --color-up: #34c795;
+  --color-down: #e2686e;
+  --color-amber: #e2a24b;
+  --color-bitcoin: #f7931a;
+
+  /* Backgrounds (generic roles, mapped onto Nocturne) */
+  --bg-primary: var(--color-bg);
+  --bg-secondary: var(--color-surface);
+  --bg-tertiary: var(--color-neutral-800);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* Text Colors (generic roles) */
+  --text-primary: var(--color-text);
+  --text-secondary: color-mix(in srgb, var(--color-text) 78%, transparent);
+  --text-tertiary: color-mix(in srgb, var(--color-text) 52%, transparent);
+  --text-inverse: var(--color-bg);
 
   /* Borders */
-  --border-color: #e5e7eb;
-  --border-color-light: #f3f4f6;
+  --border-color: var(--color-divider);
+  --border-color-light: rgba(233, 233, 237, 0.06);
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  /* Neutral (single-step, generic) */
+  --color-neutral: var(--color-neutral-600);
+
+  /* Shadows (elevation) */
+  --shadow-sm: 0 0 0 1px var(--color-neutral-800);
+  --shadow-md:
+    0 0 0 1px var(--color-neutral-700), 0 6px 18px rgba(0, 0, 0, 0.55);
+  --shadow-lg:
+    0 0 0 1px var(--color-neutral-500), 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadow-xl:
+    0 0 0 1px var(--color-neutral-300), 0 24px 56px rgba(0, 0, 0, 0.75);
 
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -42,7 +78,7 @@
   --radius-xl: 0.75rem;
 
   /* Typography */
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -69,35 +105,8 @@
   /* Chart Colors */
   --chart-up: var(--color-up);
   --chart-down: var(--color-down);
-  --chart-grid: var(--border-color);
-  --chart-text: var(--text-secondary);
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* Backgrounds */
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --bg-overlay: rgba(0, 0, 0, 0.8);
-
-    /* Text Colors */
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-tertiary: #94a3b8;
-    --text-inverse: #0f172a;
-
-    /* Borders */
-    --border-color: #475569;
-    --border-color-light: #1e293b;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-  }
+  --chart-grid: var(--border-color-light);
+  --chart-text: rgba(233, 233, 237, 0.42);
 }
 
 /* Global Styles */
@@ -119,7 +128,9 @@ body {
   color: var(--text-primary);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  transition: background-color var(--transition-base), color var(--transition-base);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
 }
 
 /* Utility Classes */
@@ -132,9 +143,9 @@ body {
 }
 
 .bg-up-light {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: color-mix(in srgb, var(--color-up) 15%, transparent);
 }
 
 .bg-down-light {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: color-mix(in srgb, var(--color-down) 15%, transparent);
 }

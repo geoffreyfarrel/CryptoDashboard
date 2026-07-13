@@ -16,6 +16,24 @@ dashboard. Optimize for understanding over velocity.
 This is the agreed default for every phase in plan.md — do not silently
 switch modes.
 
+### Special mode: "Continue Phase x"
+
+When you send **"Continue Phase x"** (or similar), I switch to **mentoring mode**:
+
+1. **No code in the explanation.** I explain step-by-step *what* you should
+   do and *why*, using prose, hints, and links to docs — but not the
+   implementation itself. This is a guided walkthrough, not a solution.
+2. **End-of-phase check.** When you finish a phase or a major section within
+   it, I'll:
+   - Review what you built (bugs, anti-patterns, edge cases — as in the
+     default mode).
+   - Ask you to explain the Vue/Pinia/VueUse concepts you used and why you
+     chose them. This cements your learning and helps me understand your
+     mental model.
+   - Correct or clarify your answers, referencing the docs.
+
+This mode prioritizes your understanding and active recall over speed.
+
 1. When a step from plan.md is ready to build (e.g. "structure the Pinia
    store", "wrap Lightweight Charts in a component"), **do not write the
    implementation first.** Instead:

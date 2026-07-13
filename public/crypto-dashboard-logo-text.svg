@@ -1,0 +1,31 @@
+<svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ringGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon mark, scaled and translated to sit at left -->
+  <g transform="translate(20,20) scale(0.39)">
+    <circle cx="256" cy="256" r="218" fill="none" stroke="url(#ringGrad2)" stroke-width="26"/>
+    <rect x="176" y="286" width="34" height="90" rx="8" fill="url(#barGrad2)"/>
+    <rect x="230" y="240" width="34" height="136" rx="8" fill="url(#barGrad2)"/>
+    <rect x="284" y="196" width="34" height="180" rx="8" fill="url(#barGrad2)"/>
+    <circle cx="301" cy="182" r="16" fill="#22D3EE"/>
+    <circle cx="301" cy="182" r="16" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.6"/>
+    <polyline points="193,286 247,240 301,182" fill="none" stroke="#E0F2FE" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="230" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="58" font-weight="700" fill="#FFFFFF">Crypto</text>
+  <text x="230" y="175" font-family="Helvetica Neue, Arial, sans-serif" font-size="58" font-weight="700" fill="url(#textGrad)">Dashboard</text>
+</svg>

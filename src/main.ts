@@ -1,10 +1,14 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-import './styles/variables.css'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import App from './App.vue';
+import './styles/variables.css';
 
-const app = createApp(App)
+import '@fontsource/inter';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
 
-app.use(createPinia())
+const app = createApp(App);
 
-app.mount('#app')
+app.use(createPinia());
+
+app.mount('#app');
