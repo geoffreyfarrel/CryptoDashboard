@@ -4,7 +4,9 @@
       "Bash(npx vue-tsc *)",
       "Skill(run)",
       "Skill(run:*)",
-      "Bash(npx --yes playwright --version)"
+      "Bash(npx --yes playwright --version)",
+      "Bash(timeout 15 npx vite build)",
+      "Bash(npx vite *)"
     ]
   }
 }

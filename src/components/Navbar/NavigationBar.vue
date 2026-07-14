@@ -1,18 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import NavigationList from './NavigationList.vue';
 import NavLogo from './NavLogo.vue';
 
-const collapsed = ref(false);
+defineProps<{ collapsed: boolean }>();
 
-const toggleCollapsed = () => {
-  collapsed.value = !collapsed.value;
-};
+const emit = defineEmits<{ toggle: [] }>();
 </script>
 
 <template>
   <nav class="navbar" :class="{ 'navbar-collapsed': collapsed }">
-    <NavLogo :collapsed="collapsed" @toggle="toggleCollapsed" />
+    <NavLogo :collapsed="collapsed" @toggle="emit('toggle')" />
     <NavigationList :collapsed="collapsed" />
   </nav>
 </template>
@@ -20,7 +17,7 @@ const toggleCollapsed = () => {
 <style scoped>
 .navbar {
   height: 100dvh;
-  width: 250px;
+  width: var(--sidebar-width);
 
   position: fixed;
   top: 0;
@@ -39,7 +36,7 @@ const toggleCollapsed = () => {
 }
 
 .navbar-collapsed {
-  width: 76px;
+  width: var(--sidebar-width-collapsed);
   padding: 0.75rem 0.75rem;
 }
 </style>

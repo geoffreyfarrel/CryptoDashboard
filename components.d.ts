@@ -15,5 +15,6 @@ declare module 'vue' {
     NavigationBar: typeof import('./src/components/Navbar/NavigationBar.vue')['default']
     NavigationList: typeof import('./src/components/Navbar/NavigationList.vue')['default']
     NavLogo: typeof import('./src/components/Navbar/NavLogo.vue')['default']
+    TopBar: typeof import('./src/components/Topbar/TopBar.vue')['default']
   }
 }

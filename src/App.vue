@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HomePage from './view/HomePage.vue';
+import PageLayout from './view/layout/PageLayout.vue';
 </script>
 
 <template>
-  <HomePage />
+  <PageLayout />
 </template>
 
 <style scoped></style>

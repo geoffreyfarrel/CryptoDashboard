@@ -5,7 +5,12 @@ const emit = defineEmits<{ toggle: [] }>();
 
 <template>
   <div class="nav-logo" :class="{ 'nav-logo-collapsed': collapsed }">
-    <a href="/" class="nav-logo-link" :class="{ 'nav-logo-link-hidden': collapsed }" :aria-hidden="collapsed">
+    <a
+      href="/"
+      class="nav-logo-link"
+      :class="{ 'nav-logo-link-hidden': collapsed }"
+      :aria-hidden="collapsed"
+    >
       <img src="/crypto-dashboard-logo-text.svg" alt="Company Logo" />
     </a>
     <button aria-label="Toggle Sidebar" class="sidebar-toggle" @click="emit('toggle')">

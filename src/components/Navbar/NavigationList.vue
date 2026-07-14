@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
 import type { Component } from 'vue';
 import IconLayoutDashboard from '~icons/tabler/layout-dashboard';
 import IconChartLine from '~icons/tabler/chart-line';
@@ -8,6 +7,7 @@ import IconTwoWayArrowsLine from '~icons/clarity/two-way-arrows-line';
 import IconChartBar from '~icons/ph/chart-bar';
 import IconBellOutline from '~icons/mdi/bell-outline';
 import IconNews from '~icons/tabler/news';
+import { RouterLink } from 'vue-router';
 
 interface NavigationItem {
   name: string;
@@ -55,32 +55,25 @@ const sections: NavigationSection[] = [
     ],
   },
 ];
-
-const activeHref = ref<string>(
-  sections
-    .flatMap((section) => section.items)
-    .find((item) => item.href === window.location.pathname)?.href ?? '/',
-);
-
-const setActive = (href: string) => {
-  activeHref.value = href;
-};
 </script>
 
 <template>
   <div class="nav">
     <ul class="nav-section">
       <li v-for="section in sections" :key="section.title" class="nav-section">
-        <span class="nav-title" :class="{ 'nav-title-hidden': collapsed }" :aria-hidden="collapsed">{{
-          section.title
-        }}</span>
+        <span
+          class="nav-title"
+          :class="{ 'nav-title-hidden': collapsed }"
+          :aria-hidden="collapsed"
+          >{{ section.title }}</span
+        >
         <ul class="nav-list">
           <li v-for="item in section.items" :key="item.href" class="nav-item">
-            <a
-              :href="item.href"
+            <RouterLink
+              :to="item.href"
               class="nav-link"
-              :class="{ 'nav-link-active': activeHref === item.href, 'nav-link-collapsed': collapsed }"
-              @click="setActive(item.href)"
+              active-class="nav-link-active"
+              :class="{ 'nav-link-collapsed': collapsed }"
             >
               <component :is="item.icon" class="nav-icon" />
               <span
@@ -88,8 +81,8 @@ const setActive = (href: string) => {
                 :class="{ 'nav-label-hidden': collapsed }"
                 :aria-hidden="collapsed"
                 >{{ item.name }}</span
-              >
-            </a>
+              ></RouterLink
+            >
           </li>
         </ul>
       </li>
