@@ -21,9 +21,13 @@ const toggleCollapsed = () => {
 <style scoped>
 .main-content {
   margin-left: var(--sidebar-width);
+
+  transition: margin-left var(--transition-base);
 }
 
 .main-content-collapsed {
   margin-left: var(--sidebar-width-collapsed);
+
+  transition: margin-left var(--transition-base);
 }
 </style>

@@ -97,9 +97,10 @@ li {
 }
 
 a {
-  text-decoration: none;
-  color: var(--text-tertiary);
   font-size: 0.875rem;
+  text-decoration: none;
+
+  color: var(--text-tertiary);
 }
 
 .nav-section {
@@ -110,15 +111,19 @@ a {
 
 .nav-title {
   display: block;
-  text-transform: uppercase;
-  font-size: 0.65rem;
-  color: var(--text-tertiary);
-  padding: 0 0 0 10px;
-  letter-spacing: 0.1em;
-  overflow: hidden;
-  white-space: nowrap;
+
   max-width: 160px;
+  padding: 0 0 0 10px;
+  overflow: hidden;
+
+  font-size: 0.65rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  color: var(--text-tertiary);
   opacity: 1;
+
   transition:
     max-width var(--transition-base),
     opacity var(--transition-base);
@@ -126,8 +131,10 @@ a {
 
 .nav-title-hidden {
   max-width: 0;
-  opacity: 0;
+
   padding-left: 0;
+
+  opacity: 0;
 }
 
 .nav-icon {
@@ -149,8 +156,11 @@ a {
   display: flex;
   align-items: start;
   gap: 0.5rem;
+
   padding: 0.4rem 0.5rem;
+
   border-radius: 0.5rem;
+
   transition: gap var(--transition-base);
 }
 
@@ -175,10 +185,12 @@ a {
 }
 
 .nav-label {
-  overflow: hidden;
-  white-space: nowrap;
   max-width: 160px;
+  overflow: hidden;
+
+  white-space: nowrap;
   opacity: 1;
+
   transition:
     max-width var(--transition-base),
     opacity var(--transition-base);
@@ -186,6 +198,7 @@ a {
 
 .nav-label-hidden {
   max-width: 0;
+
   opacity: 0;
 }
 </style>

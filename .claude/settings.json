@@ -6,7 +6,10 @@
       "Skill(run:*)",
       "Bash(npx --yes playwright --version)",
       "Bash(timeout 15 npx vite build)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "WebSearch",
+      "WebFetch(domain:docs.coingecko.com)",
+      "Bash(grep -i \"^\\\\.env$\")"
     ]
   }
 }

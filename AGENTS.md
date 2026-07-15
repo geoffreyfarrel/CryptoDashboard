@@ -93,3 +93,58 @@ Fresh `npm create vue@latest` scaffold: `pinia` and `vue` installed,
 default `src/App.vue`, `src/main.ts`, and the template `src/stores/counter.ts`
 (not yet replaced — Phase 1/2 work). No chart, WebSocket, or API integration
 yet.
+
+## Target UI design
+
+The visual target lives in a Claude Design project — **not** something to
+pull in wholesale, just the layout/style reference to build toward as each
+plan.md phase reaches its UI work.
+
+- Source: claude.ai/design project `Vue 3 Crypto Analytics Dashboard`
+  (id `267190e4-c2d4-40b3-b005-dc44b33dca27`), file `Crypto Dashboard.dc.html`.
+  Re-fetch via the `claude_design` MCP (`get_project` / `list_files` /
+  `get_file`) if the mockup needs re-checking — it's a static `.dc.html`
+  mock with placeholder/random data, not real app code.
+- Built on the **Nocturne** design system, mock-branded "Meridian Terminal".
+- 8 pages, single sidebar shell: **Dashboard**, **Markets**, **Portfolio**,
+  **Trade**, **Indicators**, **Alerts**, **News feed**, **Settings**. Sidebar
+  nav is grouped "Workspace" (Dashboard/Markets/Portfolio/Trade) and
+  "Analysis" (Indicators/Alerts/News feed), with Settings + user avatar
+  pinned to the bottom.
+- Dashboard page (closest match to plan.md's current phases): price header
+  (icon, pair, live price, 24h change), 4 stat cards (price/mkt cap/24h
+  vol/24h range), a candlestick chart with 20-period MA overlay + volume
+  bars + timeframe segmented control, a watchlist card with sparklines, and
+  a market-movers card (top gainers/losers).
+- Later pages reused for their phase: Indicators page = RSI(14) + MACD(12,26,9)
+  panes under the price chart (Phase 5); Trade page = order book depth bars
+  + buy/sell ticket; Portfolio = area chart + donut allocation + holdings
+  table; Alerts/News/Settings are lower priority, mostly static forms/tables.
+
+### Color tokens (Nocturne core + market semantics)
+
+| Token | Hex | Role |
+| --- | --- | --- |
+| `--color-bg` | `#161826` | page background |
+| `--color-surface` | `#232532` | cards |
+| `--color-text` | `#e9e9ed` | text (muted via `color-mix(... N%, transparent)`, N≈45-78) |
+| `--color-accent` | `#9184d9` | brand/blurple — active nav, buttons, MA line, focus |
+| `--color-divider` | `rgba(233,233,237,0.16)` | borders |
+| up/gain | `#34c795` | green candles, positive %, buy side |
+| down/loss | `#e2686e` | red candles, negative %, sell side |
+| amber | `#e2a24b` | triggered alerts, MACD signal line, stars |
+| bitcoin orange | `#f7931a` | ₿ badge only |
+
+Full ramp + per-component breakdown is in the design project's
+`Color Palette.md` (fetch via `claude_design` if needed) — this table is
+just the load-bearing subset.
+
+### Note on implementation mode
+
+This is a visual/UX reference only. Building toward it still goes through
+the **"I write it, you review"** mode above for anything that's a teaching
+moment (component structure, reactive state for chart data, composition
+patterns) — pulling in the mockup doesn't change that. Static markup/CSS
+scaffolding (layout divs, class names, non-reactive structure) is closer to
+the "mechanical chores" exemption; wiring it to real reactive/store data is
+not.

@@ -11,10 +11,13 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    CoinBadge: typeof import('./src/components/CoinBadge.vue')['default']
     'ITabler:layoutSidebar': typeof import('~icons/tabler/layout-sidebar')['default']
     NavigationBar: typeof import('./src/components/Navbar/NavigationBar.vue')['default']
     NavigationList: typeof import('./src/components/Navbar/NavigationList.vue')['default']
     NavLogo: typeof import('./src/components/Navbar/NavLogo.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     TopBar: typeof import('./src/components/Topbar/TopBar.vue')['default']
   }
 }
