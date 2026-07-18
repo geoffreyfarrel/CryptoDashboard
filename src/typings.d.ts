@@ -20,3 +20,13 @@ export interface CoinMarketData {
   market_cap: number;
   total_volume: number;
 }
+
+export interface SearchCoinResult {
+  id: string;
+  name: string;
+  api_symbol: string;
+  symbol: string;
+  market_cap_rank: number;
+  thumb: string;
+  large: string;
+}

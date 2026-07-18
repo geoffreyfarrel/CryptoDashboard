@@ -1,4 +1,4 @@
-import type { CoinMarketData } from '@/typings';
+import type { CoinMarketData, SearchCoinResult } from '@/typings';
 import { fetchJson } from './http';
 
 enum CoinMarketOrder {
@@ -53,6 +53,21 @@ export const getCoinMarkets = async ({
 
   const response = await fetchJson<CoinMarketData[]>(
     import.meta.env.VITE_COIN_GECKO_API_URL + `/coins/markets?${params}`,
+    {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        'x-cg-demo-api-key': import.meta.env.VITE_COIN_GECKO_API_KEY,
+      },
+    },
+  );
+
+  return response;
+};
+
+export const getSearchCoins = async (query: string): Promise<SearchCoinResult[]> => {
+  const response = await fetchJson<SearchCoinResult[]>(
+    import.meta.env.VITE_COIN_GECKO_API_URL + `/search?query=${query}`,
     {
       method: 'GET',
       headers: {
