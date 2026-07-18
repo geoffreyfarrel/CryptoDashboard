@@ -12,7 +12,11 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CoinBadge: typeof import('./src/components/CoinBadge.vue')['default']
+    CoinSearchModal: typeof import('./src/components/Topbar/CoinSearchModal.vue')['default']
+    'ITabler:chevronDown': typeof import('~icons/tabler/chevron-down')['default']
     'ITabler:layoutSidebar': typeof import('~icons/tabler/layout-sidebar')['default']
+    'ITabler:search': typeof import('~icons/tabler/search')['default']
+    'ITabler:x': typeof import('~icons/tabler/x')['default']
     NavigationBar: typeof import('./src/components/Navbar/NavigationBar.vue')['default']
     NavigationList: typeof import('./src/components/Navbar/NavigationList.vue')['default']
     NavLogo: typeof import('./src/components/Navbar/NavLogo.vue')['default']
