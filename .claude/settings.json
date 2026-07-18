@@ -9,7 +9,14 @@
       "Bash(npx vite *)",
       "WebSearch",
       "WebFetch(domain:docs.coingecko.com)",
-      "Bash(grep -i \"^\\\\.env$\")"
+      "Bash(grep -i \"^\\\\.env$\")",
+      "Bash(curl -s \"https://api.coingecko.com/api/v3/coins/list\" -o /tmp/coins_list.json)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p \"/c/Users/geoff/AppData/Local/Temp/claude/d--Projects-crypto-dashboard/b9302995-ff87-42eb-a54c-c4df4c76056f/scratchpad\")",
+      "Bash(curl -s \"https://api.coingecko.com/api/v3/coins/list\" -o \"/c/Users/geoff/AppData/Local/Temp/claude/d--Projects-crypto-dashboard/b9302995-ff87-42eb-a54c-c4df4c76056f/scratchpad/coins_list.json\")",
+      "Read(//c/Users/geoff/AppData/Local/Temp/claude/d--Projects-crypto-dashboard/b9302995-ff87-42eb-a54c-c4df4c76056f/scratchpad/**)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1' -o C:/Users/geoff/AppData/Local/Temp/claude/d--Projects-crypto-dashboard/b9302995-ff87-42eb-a54c-c4df4c76056f/scratchpad/top50.json)"
     ]
   }
 }

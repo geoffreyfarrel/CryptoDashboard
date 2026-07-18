@@ -5,7 +5,7 @@ import { ref, shallowRef } from 'vue';
 const MAX_LIVE_TICKS = 1000; // Maximum number of live ticks to keep
 
 export const useMarketStore = defineStore('market', () => {
-  const currentSymbol = ref('BTCUSDT');
+  const currentSymbol = ref('BTCUSD');
   const historicalData = shallowRef<CandleStick[]>([]);
   const liveTicks = shallowRef<CandleStick[]>([]);
   const isLoading = ref(false);

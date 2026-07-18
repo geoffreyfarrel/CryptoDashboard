@@ -11,7 +11,7 @@ enum CoinMarketOrder {
 }
 
 export interface GetCoinMarketsOptions {
-  vs_currency: string;
+  vs_currency?: string;
   ids?: string;
   names?: string;
   symbols?: string;
@@ -21,7 +21,7 @@ export interface GetCoinMarketsOptions {
 }
 
 export const getCoinMarkets = async ({
-  vs_currency,
+  vs_currency = 'usd',
   ids,
   names,
   symbols,
@@ -29,15 +29,13 @@ export const getCoinMarkets = async ({
   page = 1,
   ...options
 }: GetCoinMarketsOptions): Promise<CoinMarketData[]> => {
-  let identifierParam: readonly [string, string];
+  let identifierParam: readonly [string, string] | undefined = undefined;
   if (ids) {
     identifierParam = ['ids', ids];
   } else if (names) {
     identifierParam = ['names', names];
   } else if (symbols) {
     identifierParam = ['symbols', symbols];
-  } else {
-    identifierParam = ['ids', 'btc'];
   }
 
   const params = new URLSearchParams({
@@ -46,7 +44,9 @@ export const getCoinMarkets = async ({
     order,
   });
 
-  params.set(...identifierParam);
+  if (identifierParam) {
+    params.set(...identifierParam);
+  }
   if (options.per_page) {
     params.set('per_page', String(options.per_page));
   }

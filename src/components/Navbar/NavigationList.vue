@@ -31,7 +31,7 @@ const sections: NavigationSection[] = [
       { name: 'Dashboard', icon: IconLayoutDashboard, href: '/' },
       { name: 'Markets', icon: IconChartLine, href: '/markets' },
       { name: 'Portfolio', icon: IconWallet, href: '/portfolio' },
-      { name: 'Trade', icon: IconTwoWayArrowsLine, href: '/trades' },
+      { name: 'Trade', icon: IconTwoWayArrowsLine, href: '/trade' },
     ],
   },
   {
